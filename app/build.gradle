@@ -1,0 +1,125 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+    defaultConfig {
+        applicationId "com.strongit.androidapp"
+        minSdkVersion 15
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding{
+        enabled true
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    androidTestCompile ('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+
+    /////////////////////////////support//////////////////////
+
+    //V4版本   兼容旧版本
+    //compile 'com.android.support:support-v4:27.1.1'
+
+    //V7版本   兼容主流版本，含V4版本
+    compile 'com.android.support:appcompat-v7:27.1.1'
+    compile 'com.android.support:design:27.1.1'
+
+    // https://mvnrepository.com/artifact/com.android.support/animated-vector-drawable
+    compile group: 'com.android.support', name: 'animated-vector-drawable', version: '27.1.1'
+
+    // https://mvnrepository.com/artifact/com.android.support/recyclerview-v7
+    compile group: 'com.android.support', name: 'recyclerview-v7', version: '27.1.1'
+
+    // https://mvnrepository.com/artifact/com.android.support/recyclerview-v7
+    compile group: 'com.android.support', name: 'support-fragment', version: '27.1.1'
+
+    // https://mvnrepository.com/artifact/com.android.support/support-compat
+    compile group: 'com.android.support', name: 'support-compat', version: '27.1.1'
+    // https://mvnrepository.com/artifact/com.android.support/cardview-v7
+    compile group: 'com.android.support', name: 'cardview-v7', version: '27.1.1'
+    // https://mvnrepository.com/artifact/com.android.support/support-core-utils
+    compile group: 'com.android.support', name: 'support-core-utils', version: '27.1.1'
+    // https://mvnrepository.com/artifact/com.android.support/support-annotations
+    compile group: 'com.android.support', name: 'support-annotations', version: '27.1.1'
+
+    // https://mvnrepository.com/artifact/com.android.support.constraint/constraint-layout
+    compile group: 'com.android.support.constraint', name: 'constraint-layout', version: '1.1.2'
+
+    //V13版本  兼容平板
+    compile 'com.android.support:support-v13:27.1.1'
+    /////////////////////////////support//////////////////////
+
+    /////////////////////////////Tools//////////////////////
+    //工具类
+    implementation 'com.blankj:utilcode:1.17.3'
+    //FTP4j
+    implementation 'com.github.arjunKumbakkara:ftp4j:1.7.2'
+    //HTTP请求
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+
+    //MVVM框架
+    implementation 'com.github.goldze:MVVMHabit:2.0.4'
+    /////////////////////////////Tools//////////////////////
+
+    /////////////////////////////lifecycle//////////////////////
+
+//    // https://mvnrepository.com/artifact/android.arch.lifecycle/extensions
+//    compile group: 'android.arch.lifecycle', name: 'extensions', version: '1.1.1'
+//    // https://mvnrepository.com/artifact/android.arch.lifecycle/runtime
+//    compile group: 'android.arch.lifecycle', name: 'runtime', version: '1.1.1'
+//    // https://mvnrepository.com/artifact/android.arch.lifecycle/common
+//    compile group: 'android.arch.lifecycle', name: 'common', version: '1.1.1'
+//    // https://mvnrepository.com/artifact/android.arch.lifecycle/viewmodel
+//    compile group: 'android.arch.lifecycle', name: 'viewmodel', version: '1.1.1'
+//    // https://mvnrepository.com/artifact/android.arch.lifecycle/livedata
+//    compile group: 'android.arch.lifecycle', name: 'livedata', version: '1.1.1'
+//    // https://mvnrepository.com/artifact/android.arch.lifecycle/livedata-core
+//    compile group: 'android.arch.lifecycle', name: 'livedata-core', version: '1.1.1'
+//    // https://mvnrepository.com/artifact/android.arch.lifecycle/compiler
+//    compile group: 'android.arch.lifecycle', name: 'compiler', version: '1.1.1'
+//    // https://mvnrepository.com/artifact/android.arch.lifecycle/reactivestreams
+//    compile group: 'android.arch.lifecycle', name: 'reactivestreams', version: '1.1.1'
+//    // https://mvnrepository.com/artifact/android.arch.lifecycle/common-java8
+//    compile group: 'android.arch.lifecycle', name: 'common-java8', version: '1.1.1'
+
+    /////////////////////////////lifecycle//////////////////////
+
+
+    /////////////////////////////rxjava2//////////////////////
+
+//    // https://mvnrepository.com/artifact/android.arch.persistence.room/rxjava2
+//    compile group: 'android.arch.persistence.room', name: 'rxjava2', version: '1.1.1'
+//    // https://mvnrepository.com/artifact/io.reactivex.rxjava2/rxjava
+//    compile group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.1.16'
+//    // https://mvnrepository.com/artifact/com.squareup.retrofit2/adapter-rxjava2
+//    compile group: 'com.squareup.retrofit2', name: 'adapter-rxjava2', version: '2.4.0'
+//    // https://mvnrepository.com/artifact/io.reactivex.rxjava2/rxandroid
+//    compile group: 'io.reactivex.rxjava2', name: 'rxandroid', version: '2.0.2'
+
+    /////////////////////////////ARouter//////////////////////
+
+
+    /////////////////////////////rxjava2//////////////////////
+
+//    // https://mvnrepository.com/artifact/com.alibaba/arouter-api
+//    compile group: 'com.alibaba', name: 'arouter-api', version: '1.1.0'
+//    // https://mvnrepository.com/artifact/com.alibaba/arouter-compiler
+//    compile group: 'com.alibaba', name: 'arouter-compiler', version: '1.1.1'
+
+    /////////////////////////////ARouter//////////////////////
+}

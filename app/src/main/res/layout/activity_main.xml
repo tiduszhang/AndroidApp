@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable type="com.strongit.androidapp.ui.vm.MainViewModel"
+                  name="mainViewModel"/>
+    </data>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16sp">
+
+        <EditText android:id="@+id/txtUserName"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="@={mainViewModel.userName}" android:hint="请输入文字！" />
+
+
+        <TextView android:id="@+id/textView"
+                   android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_below ="@+id/txtUserName"
+                  android:text="@={mainViewModel.userName}"
+                  android:background="@color/green"/>
+
+        <Button android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="确定"
+                android:layout_below="@+id/textView"
+                binding:onClickCommand="@{mainViewModel.mainOnClickCommand}"/>
+
+    </LinearLayout>
+
+</layout>

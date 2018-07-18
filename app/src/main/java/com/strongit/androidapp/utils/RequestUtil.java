@@ -82,7 +82,7 @@ class RequestUtil {
             mOkHttpClient = new OkHttpClient.Builder()
                     .authenticator(new Authenticator() {
                         @Override
-                        public Request authenticate(Route route, Response response) throws IOException {
+                        public Request authenticate(Route route, Response response) {
                             System.out.println("Authenticating for response: " + response);
                             System.out.println("Challenges: " + response.challenges());
                             String credential = Credentials.basic(mUserName,mPassWord);
@@ -269,7 +269,7 @@ class RequestUtil {
                 }
             }
             @Override
-            public void onResponse(final Call call, final Response response) throws IOException {
+            public void onResponse(final Call call, final Response response) {
                 if(mCallBack != null){
                     mCallBack.onSeccess(call,response);
                 }

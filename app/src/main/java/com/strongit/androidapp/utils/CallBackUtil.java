@@ -21,7 +21,7 @@ public abstract class CallBackUtil<T> {
     public static Handler mMainHandler = new Handler(Looper.getMainLooper());
 
 
-    public  void onProgress(float progress, long total ){};
+    public  void onProgress(float progress, long total ){}
 
     public  void onError(final Call call, final Exception e){
         mMainHandler.post(new Runnable() {
@@ -30,7 +30,8 @@ public abstract class CallBackUtil<T> {
                 onFailure(call,e);
             }
         });
-    };
+    }
+
     public  void onSeccess(Call call, Response response){
         final T obj = onParseResponse(call, response);
         mMainHandler.post(new Runnable() {
@@ -39,7 +40,7 @@ public abstract class CallBackUtil<T> {
                 onResponse(obj);
             }
         });
-    };
+    }
 
 
     /**
@@ -82,11 +83,13 @@ public abstract class CallBackUtil<T> {
         private int mTargetWidth;
         private int mTargetHeight;
 
-        public CallBackBitmap(){};
+        public CallBackBitmap(){}
+
         public CallBackBitmap(int targetWidth,int targetHeight){
             mTargetWidth = targetWidth;
             mTargetHeight = targetHeight;
-        };
+        }
+
         public CallBackBitmap(ImageView imageView){
             int width = imageView.getWidth();
             int height = imageView.getHeight();
@@ -95,7 +98,8 @@ public abstract class CallBackUtil<T> {
             }
             mTargetWidth = width;
             mTargetHeight = height;
-        };
+        }
+
         @Override
         public Bitmap onParseResponse(Call call, Response response) {
             if(mTargetWidth ==0 || mTargetHeight == 0){

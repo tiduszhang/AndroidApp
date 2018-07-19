@@ -78,24 +78,14 @@ public class MainViewModel extends BaseViewModel {
         }
         userName.set("");
         i = 0;
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(1000);
-                    showToastMessage("开始打字！");
-                    for (i = 0; i < strMessage.length(); i++) {
 
-                        Messenger.getDefault().send(strMessage.charAt(i) + "", WRITE_STRING);
+        if(!thread.isAlive()) {
+            thread.start();
+        }
 
-                        Thread.sleep(200);
-                    }
-                    showToastMessage("完成打字！");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
+        if(!isWriting) {
+            isWriting = true;
+        }
     }
 
     Handler handlerToastUtils = new Handler() {
@@ -107,4 +97,30 @@ public class MainViewModel extends BaseViewModel {
             super.handleMessage(msg);
         }
     };
+
+    boolean isWriting = false;
+
+    Thread thread=   new Thread(new Runnable() {
+        @Override
+        public void run() {
+            while (true) {
+                try {
+                    if (!isWriting) {
+                        Thread.sleep(1000);
+                        continue;
+                    }
+                    showToastMessage("开始打字！");
+                    for (i = 0; i < strMessage.length(); i++) {
+                        Thread.sleep(250);
+                        //userName.set(userName.get() + strMessage.charAt(i));
+                        Messenger.getDefault().send(strMessage.charAt(i) + "", WRITE_STRING);
+                    }
+                    showToastMessage("完成打字！");
+                    isWriting =false;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    });
 }

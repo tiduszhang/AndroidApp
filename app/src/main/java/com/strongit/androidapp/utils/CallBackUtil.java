@@ -13,10 +13,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-/**
- * Created by fighting on 2017/4/7.
- */
-
 public abstract class CallBackUtil<T> {
     public static Handler mMainHandler = new Handler(Looper.getMainLooper());
 

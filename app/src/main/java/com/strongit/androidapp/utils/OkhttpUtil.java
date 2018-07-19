@@ -4,10 +4,6 @@ import java.io.File;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by fighting on 2017/4/7.
- */
-
 public class OkhttpUtil {
 
     public static final String METHOD_GET = "GET";

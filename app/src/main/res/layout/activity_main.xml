@@ -11,7 +11,7 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="50dp"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="16sp">
@@ -29,10 +29,23 @@
                   android:text="@={mainViewModel.userName}"
                   android:background="@color/green"/>
 
-        <Button android:layout_width="match_parent"
+        <Button android:id="@+id/btnOK"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:text="确定"
                 android:layout_below="@+id/textView"
                 binding:onClickCommand="@{mainViewModel.mainOnClickCommand}"/>
+
+        <EditText android:id="@+id/txtUserName1"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@+id/btnOK"
+                  android:text="@={mainViewModel.userName}" android:hint="请输入文字！" />
+
+        <EditText android:id="@+id/txtUserName2"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@+id/txtUserName1"
+                  android:text="@={mainViewModel.userName}" android:hint="请输入文字！" />
 
     </LinearLayout>
 

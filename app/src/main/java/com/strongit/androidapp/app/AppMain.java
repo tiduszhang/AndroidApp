@@ -1,7 +1,7 @@
 package com.strongit.androidapp.app;
 
 import com.strongit.androidapp.R;
-import com.strongit.androidapp.ui.activity.MainActivity;
+import com.strongit.androidapp.ui.activity.TestActivity;
 import me.goldze.mvvmhabit.base.BaseApplication;
 import me.goldze.mvvmhabit.crash.CaocConfig;
 import me.goldze.mvvmhabit.utils.KLog;
@@ -22,7 +22,7 @@ public class AppMain extends BaseApplication {
                 .trackActivities(true) //是否跟踪Activity
                 .minTimeBetweenCrashesMs(2000) //崩溃的间隔时间(毫秒)
                 .errorDrawable(R.mipmap.ic_launcher) //错误图标
-                .restartActivity(MainActivity.class) //重新启动后的activity
+                .restartActivity(TestActivity.class) //重新启动后的activity
                 //.errorActivity(YourCustomErrorActivity.class) //崩溃后的错误activity
                 //.eventListener(new YourCustomEventListener()) //崩溃后的错误监听
                 .apply();

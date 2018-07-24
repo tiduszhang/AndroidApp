@@ -1,7 +1,8 @@
 package com.strongit.androidapp.app;
 
+import com.beardedhen.androidbootstrap.TypefaceProvider;
 import com.strongit.androidapp.R;
-import com.strongit.androidapp.ui.activity.TestActivity;
+import com.strongit.androidapp.ui.activity.LoginActivity;
 import me.goldze.mvvmhabit.base.BaseApplication;
 import me.goldze.mvvmhabit.crash.CaocConfig;
 import me.goldze.mvvmhabit.utils.KLog;
@@ -10,6 +11,9 @@ public class AppMain extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        //注册样式
+        TypefaceProvider.registerDefaultIconSets();
 
         //是否开启日志打印
         KLog.init(true);
@@ -22,7 +26,7 @@ public class AppMain extends BaseApplication {
                 .trackActivities(true) //是否跟踪Activity
                 .minTimeBetweenCrashesMs(2000) //崩溃的间隔时间(毫秒)
                 .errorDrawable(R.mipmap.ic_launcher) //错误图标
-                .restartActivity(TestActivity.class) //重新启动后的activity
+                .restartActivity(LoginActivity.class) //重新启动后的activity
                 //.errorActivity(YourCustomErrorActivity.class) //崩溃后的错误activity
                 //.eventListener(new YourCustomEventListener()) //崩溃后的错误监听
                 .apply();
@@ -35,4 +39,6 @@ public class AppMain extends BaseApplication {
 //            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
 //        }
     }
+
+
 }

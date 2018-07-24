@@ -91,7 +91,7 @@ public class TestViewModel extends BaseViewModel {
 
         if(!task.getStatus().equals(AsyncTask.Status.RUNNING)) {
 
-            task.execute(new Void[]{});
+            task.execute();
         }
 //
 //        if (!thread.isAlive()) {

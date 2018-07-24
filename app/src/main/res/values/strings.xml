@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">思创日报管理系统</string>
 
-    <string name="title_activity_welcome">欢迎使用思创日报管理系统</string>
     <string name="dummy_button">确定</string>
-    <string name="dummy_content">欢迎使用\n思创日报管理系统</string>
+    <string name="dummy_content">欢迎使用\n@string/app_name</string>
+
 </resources>

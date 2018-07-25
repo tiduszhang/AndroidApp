@@ -1,4 +1,4 @@
-package com.strongit.androidapp.utils;
+package com.strongit.androidapp.utils.http;
 
 import java.io.File;
 import java.util.List;

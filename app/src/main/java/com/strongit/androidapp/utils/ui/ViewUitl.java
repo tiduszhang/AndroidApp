@@ -1,4 +1,4 @@
-package com.strongit.androidapp.utils;
+package com.strongit.androidapp.utils.ui;
 
 
 import android.content.Context;

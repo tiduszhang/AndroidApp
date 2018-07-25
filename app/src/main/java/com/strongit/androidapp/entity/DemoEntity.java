@@ -24,11 +24,31 @@ public class DemoEntity{
 
         private String name;
 
+        private String id;
+
         public ItemsEntity() {
         }
 
-        public ItemsEntity(Parcel in) {
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        protected ItemsEntity(Parcel in) {
             name = in.readString();
+            id = in.readString();
         }
 
         public static final Creator<ItemsEntity> CREATOR = new Creator<ItemsEntity>() {
@@ -43,14 +63,6 @@ public class DemoEntity{
             }
         };
 
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
         @Override
         public int describeContents() {
             return 0;
@@ -58,7 +70,8 @@ public class DemoEntity{
 
         @Override
         public void writeToParcel(Parcel dest, int flags) {
-            dest.writeString(this.name);
+            dest.writeString(name);
+            dest.writeString(id);
         }
     }
 }

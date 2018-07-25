@@ -1,4 +1,4 @@
-package com.strongit.androidapp.listener;
+package com.strongit.androidapp.utils.listener;
 
 
 import android.support.design.widget.AppBarLayout;

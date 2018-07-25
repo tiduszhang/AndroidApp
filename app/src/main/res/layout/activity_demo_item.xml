@@ -8,13 +8,58 @@
                 name="demoItemViewModel"
                 type="com.strongit.androidapp.ui.vm.DemoItemViewModel" />
     </data>
-
+    <RelativeLayout
+            android:id="@+id/slide_itemView"
+            android:clipChildren="false"
+            android:tag="slide_flag"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
     <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
+            android:id="@+id/item_text"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="6dp"
+            android:layout_margin="5dp"
             android:text="@{demoItemViewModel.entity.name}" />
 
+
+
+    <LinearLayout
+            android:id="@+id/slide"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="false"
+            android:layout_toRightOf="@id/item_text"
+            android:orientation="horizontal">
+        <!--android:layout_toRightOf="@{demoItemViewModel.entity.name}"-->
+
+        <TextView
+                android:id="@+id/zhiding"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:background="#C8C7CD"
+                android:gravity="center"
+                android:text="置顶"
+                android:textColor="#ffffff" />
+
+        <TextView
+                android:id="@+id/yidu"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:background="#FF9D00"
+                android:gravity="center"
+                android:text="设为已读"
+                android:textColor="#ffffff" />
+
+        <TextView
+                android:id="@+id/shanchu"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:background="#FE3C31"
+                android:gravity="center"
+                android:text="删除"
+                android:textColor="#ffffff" />
+    </LinearLayout>
+
+    </RelativeLayout>
 </layout>

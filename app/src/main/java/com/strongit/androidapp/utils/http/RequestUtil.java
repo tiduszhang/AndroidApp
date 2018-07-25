@@ -1,4 +1,4 @@
-package com.strongit.androidapp.utils;
+package com.strongit.androidapp.utils.http;
 
 import android.text.TextUtils;
 import com.blankj.utilcode.util.StringUtils;

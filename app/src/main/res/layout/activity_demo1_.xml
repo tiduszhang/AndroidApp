@@ -87,6 +87,7 @@
                         app:titleTextColor="@color/white"
                         app:popupTheme="@style/OverflowMenuStyle"
                         app:contentInsetStart="0dp"
+                        app:contentInsetLeft="0dp"
                 >
 
                 </android.support.v7.widget.Toolbar>

@@ -17,9 +17,9 @@ import com.lcodecore.tkrefreshlayout.header.SinaRefreshView;
 import com.strongit.androidapp.BR;
 import com.strongit.androidapp.R;
 import com.strongit.androidapp.databinding.ActivityDemo1Binding;
-import com.strongit.androidapp.listener.AppBarStateChangeListener;
 import com.strongit.androidapp.ui.vm.DemoViewModel;
-import com.strongit.androidapp.utils.StatusBarUtil;
+import com.strongit.androidapp.utils.listener.AppBarStateChangeListener;
+import com.strongit.androidapp.utils.ui.StatusBarUtil;
 import me.goldze.mvvmhabit.base.BaseActivity;
 import me.goldze.mvvmhabit.utils.ToastUtils;
 
@@ -46,7 +46,6 @@ public class Demo1_Activity extends BaseActivity<ActivityDemo1Binding, DemoViewM
         super.onCreate(savedInstanceState);
 
         //binding.toolbarLayout.setTitle("这是一个系统标题");
-
 
         floatStatusBar();
 
@@ -190,4 +189,5 @@ public class Demo1_Activity extends BaseActivity<ActivityDemo1Binding, DemoViewM
             }
         });
     }
+
 }

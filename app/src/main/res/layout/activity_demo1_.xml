@@ -19,8 +19,8 @@
         android:layout_height="match_parent"
         app:onLoadMoreCommand="@{demoViewModel.onLoadMoreCommand}"
         app:onRefreshCommand="@{demoViewModel.onRefreshCommand}"
-        tools:tr_head_height="80dp"
-        tools:tr_wave_height="80dp" >
+        tools:tr_head_height="10dp"
+        tools:tr_wave_height="20dp" >
 
 
     <android.support.design.widget.CoordinatorLayout
@@ -42,26 +42,54 @@
                     app:layout_collapseMode="parallax"
                     app:layout_collapseParallaxMultiplier="1.0"
                     app:statusBarScrim="@android:color/transparent"
-                    app:expandedTitleMarginStart="50dp">
+                    app:collapsedTitleTextAppearance="@style/ToolBarTitleText"
+                    app:expandedTitleTextAppearance="@style/ToolBarTitleText"
+                    app:title="@string/app_name"
+                    app:expandedTitleGravity="bottom"
+            >
 
                 <!--app:contentScrim="?attr/colorPrimary"-->
+                <!--app:statusBarScrim="@android:color/transparent"-->
                 <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_collapseMode="parallax"
-                        app:layout_collapseParallaxMultiplier="0.1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_collapseMode="pin"
+                        app:layout_collapseParallaxMultiplier="1.0"
                         android:scaleType="fitXY"
-                        android:src="@drawable/full_screen"
-                        android:contentDescription="@string/app_name"/>
+                        android:contentDescription="@null"
+                        android:fitsSystemWindows="true"
+                        android:src="@drawable/full_screen"/>
 
+                <RelativeLayout android:id="@+id/titleRelativeLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                    <RelativeLayout
+                            android:id="@+id/titleRelativeLayoutPin"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fitsSystemWindows="true"
+                            app:layout_collapseMode="parallax"
+                            app:layout_collapseParallaxMultiplier="1">
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
 
                 <android.support.v7.widget.Toolbar
                         android:id="@+id/toolbar"
                         android:layout_width="match_parent"
                         android:layout_height="?attr/actionBarSize"
-                        app:layout_collapseMode="pin"
+                        app:layout_collapseMode="parallax"
+                        app:layout_collapseParallaxMultiplier="1"
                         app:layout_scrollFlags="scroll|enterAlways"
-                        android:text="@string/app_name"/>
+                        app:navigationIcon="?attr/homeAsUpIndicator"
+                        app:titleTextColor="@color/white"
+                        app:popupTheme="@style/OverflowMenuStyle"
+                        app:contentInsetStart="0dp"
+                >
+
+                </android.support.v7.widget.Toolbar>
 
 
             </android.support.design.widget.CollapsingToolbarLayout>

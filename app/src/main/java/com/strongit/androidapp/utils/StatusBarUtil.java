@@ -80,7 +80,7 @@ public class StatusBarUtil {
     // 添加顶部间隔，留出状态栏的位置
     private static void addMarginTop(Activity activity) {
         Window window = activity.getWindow();
-        ViewGroup contentView = (ViewGroup) window.findViewById(Window.ID_ANDROID_CONTENT);
+        ViewGroup contentView = window.findViewById(Window.ID_ANDROID_CONTENT);
         View child = contentView.getChildAt(0);
         if (!TAG_MARGIN_ADDED.equals(child.getTag())) {
             FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) child.getLayoutParams();
@@ -94,7 +94,7 @@ public class StatusBarUtil {
     // 移除顶部间隔，霸占状态栏的位置
     private static void removeMarginTop(Activity activity) {
         Window window = activity.getWindow();
-        ViewGroup contentView = (ViewGroup) window.findViewById(Window.ID_ANDROID_CONTENT);
+        ViewGroup contentView = window.findViewById(Window.ID_ANDROID_CONTENT);
         View child = contentView.getChildAt(0);
         if (TAG_MARGIN_ADDED.equals(child.getTag())) {
             FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) child.getLayoutParams();

@@ -45,6 +45,15 @@
                 app:onClickCommand="@{testViewModel.mainOnClickCommand}"
         />
 
+        <com.qmuiteam.qmui.layout.QMUIButton android:layout_height="wrap_content" android:layout_width="wrap_content"
+
+                                             android:id="@+id/btnOK1"
+
+                                             android:text="确定"
+                                             app:onClickCommand="@{testViewModel.mainOnClickCommand}">
+
+        </com.qmuiteam.qmui.layout.QMUIButton>
+
         <EditText android:id="@+id/txtUserName1"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"

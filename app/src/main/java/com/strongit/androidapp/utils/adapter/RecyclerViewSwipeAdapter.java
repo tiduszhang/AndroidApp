@@ -73,6 +73,7 @@ public class RecyclerViewSwipeAdapter<T> extends BindingRecyclerViewAdapter<Recy
         final SwipeLayout swipeLayout = view.findViewById(swipeLayoutid);
 
         swipeLayout.setShowMode(SwipeLayout.ShowMode.PullOut);
+//        swipeLayout.close();
 
 //        swipeLayout.addSwipeListener(new SimpleSwipeListener() {
 //            @Override
@@ -81,30 +82,6 @@ public class RecyclerViewSwipeAdapter<T> extends BindingRecyclerViewAdapter<Recy
 //                YoYo.with(Techniques.Tada).duration(500).delay(100).playOn(layout.findViewById(bottom_wrapperid));
 //            }
 //        });
-
-        //如果设置了回调，则设置点击事件
-        if (mOnItemClickLitener != null) {
-
-            swipeLayout.getSurfaceView().setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    swipeLayout.close();//隐藏侧滑菜单区域
-                    int position = viewHolder.getLayoutPosition();//在增加数据或者减少数据时候，position和index就不一样了
-                    mOnItemClickLitener.onItemClick(swipeLayout, position);
-                }
-            });
-
-            //长按事件
-            swipeLayout.getSurfaceView().setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View view) {
-                    swipeLayout.close();//隐藏侧滑菜单区域
-                    int position = viewHolder.getLayoutPosition();//在增加数据或者减少数据时候，position和index就不一样了
-                    mOnItemClickLitener.onItemLongClick(swipeLayout, position);
-                    return false;
-                }
-            });
-        }
 
         mItemManger.bindView(viewHolder.itemView, position);//实现只展现一条列表项的侧滑区域
 
@@ -124,31 +101,6 @@ public class RecyclerViewSwipeAdapter<T> extends BindingRecyclerViewAdapter<Recy
         //return 0;
         return swipeLayoutid;//实现只展现一条列表项的侧滑区域
     }
-
-    /*=====================添加OnItemClickListener回调================================*/
-    public interface OnItemClickLitener
-    {
-        /**
-         * 点击事件
-         * @param view
-         * @param position
-         */
-        void onItemClick(View view, int position);
-
-        /**
-         * 长按事件
-         * @param view
-         * @param position
-         */
-        void onItemLongClick(View view, int position);
-    }
-
-    private OnItemClickLitener mOnItemClickLitener;
-    public void setOnItemClickLitener(OnItemClickLitener mOnItemClickLitener)
-    {
-        this.mOnItemClickLitener = mOnItemClickLitener;
-    }
-
 
     public void openItem(int position) {
         mItemManger.openItem(position);

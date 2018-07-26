@@ -35,7 +35,8 @@
                     android:background="#0195C5"
                     android:gravity="center"
                     android:paddingLeft="20dp"
-                    android:paddingRight="20dp">
+                    android:paddingRight="20dp"
+                    binding:onClickCommand="@{demoItemViewModel.itemTopClick}">
 
 
                 <TextView
@@ -44,8 +45,7 @@
                         android:paddingTop="5dp"
                         android:text="置顶"
                         android:textColor="#ffffff"
-                        android:textSize="18sp"
-                        binding:onClickCommand="@{demoItemViewModel.itemTopClick}" />
+                        android:textSize="18sp" />
 
             </LinearLayout>
 
@@ -58,7 +58,8 @@
                     android:background="#FF5D5D"
                     android:gravity="center"
                     android:paddingLeft="20dp"
-                    android:paddingRight="20dp">
+                    android:paddingRight="20dp"
+                    binding:onClickCommand="@{demoItemViewModel.itemDelectClick}">
 
                 <TextView
                         android:layout_width="wrap_content"
@@ -66,8 +67,7 @@
                         android:paddingTop="5dp"
                         android:text="删除"
                         android:textColor="#ffffff"
-                        android:textSize="18sp"
-                        binding:onClickCommand="@{demoItemViewModel.itemDelectClick}"/>
+                        android:textSize="18sp"/>
 
             </LinearLayout>
 
@@ -75,6 +75,8 @@
         <!-- Bottom View End-->
 
         <!--surfaceView Start-->
+
+        <!-- 显示的内容 -->
         <LinearLayout
                 android:id="@+id/surfaceView"
                 android:layout_width="match_parent"
@@ -94,7 +96,7 @@
 
         </LinearLayout>
         <!--surfaceView End-->
-    </com.daimajia.swipe.SwipeLayout>
 
+    </com.daimajia.swipe.SwipeLayout>
 
 </layout>

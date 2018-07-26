@@ -6,13 +6,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import com.daimajia.swipe.util.Attributes;
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 import com.lcodecore.tkrefreshlayout.footer.BallPulseView;
 import com.lcodecore.tkrefreshlayout.header.SinaRefreshView;
@@ -23,6 +21,7 @@ import com.strongit.androidapp.entity.DemoEntity;
 import com.strongit.androidapp.ui.vm.DemoViewModel;
 import com.strongit.androidapp.utils.adapter.RecyclerViewSwipeAdapter;
 import com.strongit.androidapp.utils.listener.AppBarStateChangeListener;
+import com.strongit.androidapp.utils.ui.RecyclerViewSwipeUtil;
 import com.strongit.androidapp.utils.ui.StatusBarUtil;
 import me.goldze.mvvmhabit.base.BaseActivity;
 import me.goldze.mvvmhabit.utils.ToastUtils;
@@ -38,6 +37,8 @@ public class Demo1_Activity extends BaseActivity<ActivityDemo1Binding, DemoViewM
     public int initVariableId() {
         return BR.demoViewModel;
     }
+
+    private RecyclerViewSwipeAdapter<DemoEntity.ItemsEntity> mNewsAdapter;
 
     @Override
     public DemoViewModel initViewModel() {
@@ -86,18 +87,18 @@ public class Demo1_Activity extends BaseActivity<ActivityDemo1Binding, DemoViewM
             @Override
             public void onStateChanged(AppBarLayout appBarLayout, AppBarStateChangeListener.State state) {
                 Log.d("STATE", state.name());
-                if( state == State.EXPANDED ) {
+                if (state == State.EXPANDED) {
 
                     //展开状态
                     binding.twinklingRefreshLayout.setEnableRefresh(true);
                     binding.twinklingRefreshLayout.setEnableOverScroll(false);
 
-                }else if(state == State.COLLAPSED){
+                } else if (state == State.COLLAPSED) {
 
                     //折叠状态
                     binding.twinklingRefreshLayout.setEnableRefresh(false);
                     binding.twinklingRefreshLayout.setEnableOverScroll(false);
-                }else {
+                } else {
 
                     //中间状态
 
@@ -107,7 +108,7 @@ public class Demo1_Activity extends BaseActivity<ActivityDemo1Binding, DemoViewM
 
         setToolbar();
 
-        setDataItemView();
+        RecyclerViewSwipeUtil.setRecyclerViewAdapter(this, binding.mainContent, this.viewModel.observableList, R.id.swipeLayout, mNewsAdapter);
 
     }
 
@@ -197,28 +198,5 @@ public class Demo1_Activity extends BaseActivity<ActivityDemo1Binding, DemoViewM
     }
 
 
-    private RecyclerViewSwipeAdapter<DemoEntity.ItemsEntity> mNewsAdapter;
-
-    private void setDataItemView(){
-
-        //设置布局管理器
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        binding.mainContent.setLayoutManager(linearLayoutManager);
-
-
-        //设置适配器
-        if(mNewsAdapter == null){
-            //设置适配器
-            mNewsAdapter = new RecyclerViewSwipeAdapter(this, this.viewModel.observableList, R.id.swipeLayout, R.layout.activity_demo_item, R.id.bottom_wrapper);
-            mNewsAdapter.setMode(Attributes.Mode.Single);//设置只有一个拖拽打开的时候，其他的关闭
-            binding.mainContent.setAdapter(mNewsAdapter);
-            //添加分割线
-            //设置添加删除动画
-            //调用ListView的setSelected(!ListView.isSelected())方法，这样就能及时刷新布局
-            binding.mainContent.setSelected(true);
-        }else{
-            mNewsAdapter.notifyDataSetChanged();
-        }
-    }
 
 }

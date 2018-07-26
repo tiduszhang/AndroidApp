@@ -13,6 +13,10 @@ import me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter;
 
 import java.util.List;
 
+/**
+ * 侧滑菜单工具适配器
+ * @param <T>
+ */
 public class RecyclerViewSwipeAdapter<T> extends BindingRecyclerViewAdapter<RecyclerView.ViewHolder> implements SwipeItemMangerInterface, SwipeAdapterInterface {
 
 
@@ -24,18 +28,17 @@ public class RecyclerViewSwipeAdapter<T> extends BindingRecyclerViewAdapter<Recy
     /**集合*/
     private ObservableList<T> listitemList;
     private int swipeLayoutid;
-    private int news_list_itemid;
-    private int bottom_wrapperid;
 
     /**
      * 构造函数
+     * @param context
+     * @param itemlist
+     * @param swipeLayoutid
      */
-    public RecyclerViewSwipeAdapter(Context context, ObservableList<T> itemlist, int swipeLayoutid, int news_list_itemid, int bottom_wrapperid) {
+    public RecyclerViewSwipeAdapter(Context context, ObservableList<T> itemlist, int swipeLayoutid) {
         this.myContext = context;
        this. listitemList = itemlist;
         this.swipeLayoutid = swipeLayoutid;
-        this.news_list_itemid = news_list_itemid;
-        this.bottom_wrapperid =bottom_wrapperid;
 
         //添加数据变化监听
         listitemList.addOnListChangedCallback(new ObservableList.OnListChangedCallback<ObservableList<T>>() {
@@ -73,7 +76,8 @@ public class RecyclerViewSwipeAdapter<T> extends BindingRecyclerViewAdapter<Recy
         final SwipeLayout swipeLayout = view.findViewById(swipeLayoutid);
 
         swipeLayout.setShowMode(SwipeLayout.ShowMode.PullOut);
-//        swipeLayout.close();
+
+//        swipeLayout.close();//关闭侧滑
 
 //        swipeLayout.addSwipeListener(new SimpleSwipeListener() {
 //            @Override
@@ -81,7 +85,9 @@ public class RecyclerViewSwipeAdapter<T> extends BindingRecyclerViewAdapter<Recy
 //                //实现动画效果展现隐藏层
 //                YoYo.with(Techniques.Tada).duration(500).delay(100).playOn(layout.findViewById(bottom_wrapperid));
 //            }
-//        });
+//        })
+
+//        //点击事件
 //        swipeLayout.getSurfaceView().setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -89,6 +95,7 @@ public class RecyclerViewSwipeAdapter<T> extends BindingRecyclerViewAdapter<Recy
 //
 //            }
 //        });
+
 //        //长按事件
 //        swipeLayout.getSurfaceView().setOnLongClickListener(new View.OnLongClickListener() {
 //            @Override
@@ -97,8 +104,6 @@ public class RecyclerViewSwipeAdapter<T> extends BindingRecyclerViewAdapter<Recy
 //                return false;
 //            }
 //        });
-
-
 
         mItemManger.bindView(viewHolder.itemView, position);//实现只展现一条列表项的侧滑区域
 

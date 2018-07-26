@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">思创日报管理系统</string>
+    <string name="app_name">XXXX管理系统</string>
 
     <string name="dummy_button">确定</string>
     <string name="dummy_content">欢迎使用\n@string/app_name</string>

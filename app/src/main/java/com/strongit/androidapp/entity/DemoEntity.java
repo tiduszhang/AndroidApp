@@ -29,7 +29,6 @@ public class DemoEntity{
         public ItemsEntity() {
         }
 
-
         public String getName() {
             return name;
         }

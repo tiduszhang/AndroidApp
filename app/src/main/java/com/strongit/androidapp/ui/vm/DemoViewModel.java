@@ -91,8 +91,4 @@ public class DemoViewModel extends BaseViewModel {
             }, 1000);
         }
     });
-
-
-
-
 }

@@ -5,8 +5,8 @@ import android.databinding.ObservableArrayList;
 import android.databinding.ObservableBoolean;
 import android.databinding.ObservableList;
 import android.os.Handler;
-import com.strongit.androidapp.BR;
 import com.strongit.androidapp.R;
+import com.strongit.androidapp.BR;
 import com.strongit.androidapp.entity.DemoEntity;
 import me.goldze.mvvmhabit.base.BaseViewModel;
 import me.goldze.mvvmhabit.binding.command.BindingAction;
@@ -89,6 +89,7 @@ public class DemoViewModel extends BaseViewModel {
             }, 1000);
         }
     });
+
 
 
 

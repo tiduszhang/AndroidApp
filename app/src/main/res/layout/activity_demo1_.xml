@@ -101,12 +101,19 @@
                     android:id="@+id/main_content"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    tools:itemBinding="@{demoViewModel.itemBinding}"
+
                     tools:items="@{demoViewModel.observableList}"
+                    tools:itemBinding="@{demoViewModel.itemBinding}"
                     tools:layoutManager="@{LayoutManagers.linear()}"
                     tools:lineManager="@{LineManagers.horizontal()}"
-                    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+
+            <!--
+                    tools:items="@{demoViewModel.observableList}"
+                    tools:itemBinding="@{demoViewModel.itemBinding}"
+                    tools:layoutManager="@{LayoutManagers.linear()}"
+                    tools:lineManager="@{LineManagers.horizontal()}"-->
             </android.support.v7.widget.RecyclerView>
 
     </android.support.design.widget.CoordinatorLayout>

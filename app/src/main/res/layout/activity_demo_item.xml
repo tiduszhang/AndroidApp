@@ -8,58 +8,90 @@
                 name="demoItemViewModel"
                 type="com.strongit.androidapp.ui.vm.DemoItemViewModel" />
     </data>
-    <RelativeLayout
-            android:id="@+id/slide_itemView"
-            android:clipChildren="false"
-            android:tag="slide_flag"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
-    <TextView
-            android:id="@+id/item_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="@{demoItemViewModel.entity.name}" />
+    <com.daimajia.swipe.SwipeLayout
+                                    android:id="@+id/swipeLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    binding:leftEdgeSwipeOffset="0dp"
+                                    binding:rightEdgeSwipeOffset="0dp"
+                                    android:layout_margin="1dp">
 
-
-
-    <LinearLayout
-            android:id="@+id/slide"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipChildren="false"
-            android:layout_toRightOf="@id/item_text"
-            android:orientation="horizontal">
-        <!--android:layout_toRightOf="@{demoItemViewModel.entity.name}"-->
-
-        <TextView
-                android:id="@+id/zhiding"
-                android:layout_width="80dp"
+        <!-- Bottom View Start-->
+        <LinearLayout
+                android:id="@+id/bottom_wrapper"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="#C8C7CD"
-                android:gravity="center"
-                android:text="置顶"
-                android:textColor="#ffffff" />
+                android:layout_gravity="right|center_vertical"
+                android:orientation="horizontal"
+                android:weightSum="1">
 
-        <TextView
-                android:id="@+id/yidu"
-                android:layout_width="80dp"
-                android:layout_height="match_parent"
-                android:background="#FF9D00"
-                android:gravity="center"
-                android:text="设为已读"
-                android:textColor="#ffffff" />
+            <!-- 置顶 -->
+            <LinearLayout
+                    android:id="@+id/swipe_bottom_top_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="#0195C5"
+                    android:gravity="center"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp">
 
-        <TextView
-                android:id="@+id/shanchu"
-                android:layout_width="80dp"
-                android:layout_height="match_parent"
-                android:background="#FE3C31"
-                android:gravity="center"
-                android:text="删除"
-                android:textColor="#ffffff" />
-    </LinearLayout>
 
-    </RelativeLayout>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:text="置顶"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <!-- 删除 -->
+            <LinearLayout
+                    android:id="@+id/swipe_bottom_del_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="#FF5D5D"
+                    android:gravity="center"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:text="删除"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <!-- Bottom View End-->
+
+        <!--surfaceView Start-->
+        <LinearLayout
+                android:id="@+id/surfaceView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#ffffff">
+
+            <TextView
+                    android:id="@+id/tv_channelName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="@{demoItemViewModel.entity.name}"
+                    android:padding="20dp"/>
+
+            <!--android:text="@{demoItemViewModel.entity.name}"-->
+        </LinearLayout>
+        <!--surfaceView End-->
+    </com.daimajia.swipe.SwipeLayout>
+
+
 </layout>

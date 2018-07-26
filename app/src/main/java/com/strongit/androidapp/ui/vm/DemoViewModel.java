@@ -5,8 +5,8 @@ import android.databinding.ObservableArrayList;
 import android.databinding.ObservableBoolean;
 import android.databinding.ObservableList;
 import android.os.Handler;
-import com.strongit.androidapp.R;
 import com.strongit.androidapp.BR;
+import com.strongit.androidapp.R;
 import com.strongit.androidapp.entity.DemoEntity;
 import me.goldze.mvvmhabit.base.BaseViewModel;
 import me.goldze.mvvmhabit.binding.command.BindingAction;
@@ -47,8 +47,10 @@ public class DemoViewModel extends BaseViewModel {
                 for (int i = 0; i < 40; i++) {
                     DemoEntity.ItemsEntity item = new DemoEntity.ItemsEntity();
                     item.setName("模拟条目" + i);
+
+                    DemoItemViewModel demoItemViewModel =   new DemoItemViewModel(context, item);
                     //动态添加Item
-                    observableList.add(new DemoItemViewModel(context, item));
+                    observableList.add(demoItemViewModel);
                 }
             }
         }, 1000);

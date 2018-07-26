@@ -82,6 +82,23 @@ public class RecyclerViewSwipeAdapter<T> extends BindingRecyclerViewAdapter<Recy
 //                YoYo.with(Techniques.Tada).duration(500).delay(100).playOn(layout.findViewById(bottom_wrapperid));
 //            }
 //        });
+//        swipeLayout.getSurfaceView().setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                swipeLayout.close();//隐藏侧滑菜单区域
+//
+//            }
+//        });
+//        //长按事件
+//        swipeLayout.getSurfaceView().setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//                swipeLayout.close();//隐藏侧滑菜单区域
+//                return false;
+//            }
+//        });
+
+
 
         mItemManger.bindView(viewHolder.itemView, position);//实现只展现一条列表项的侧滑区域
 

@@ -219,7 +219,6 @@ public class Demo1_Activity extends BaseActivity<ActivityDemo1Binding, DemoViewM
         }else{
             mNewsAdapter.notifyDataSetChanged();
         }
-
     }
 
 }
